@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2b1b17, #4e342e);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: #ffccbc;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff8a65;
+}
+
+/* Content */
+.container {
+    padding: 90px 20px;
+    text-align: center;
+    animation: fadeUp 1.2s ease;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ffab91;
+    margin-bottom: 25px;
+    animation: glow 2s infinite alternate;
+}
+
+p {
+    font-size: 1.15rem;
+    max-width: 900px;
+    margin: 20px auto;
+    line-height: 1.9;
+    opacity: 0;
+    animation: fadeIn 1.4s forwards;
+    animation-delay: 0.4s;
+}
+
+.heart {
+    font-size: 3.8rem;
+    margin-top: 30px;
+    animation: beat 1.4s infinite;
+}
+
+/* Animations */
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ffab91; }
+    to { text-shadow: 0 0 25px #ff7043; }
+}
+
+/* Floating Chocolates */
+.choco {
+    position: fixed;
+    top: -50px;
+    font-size: 24px;
+    animation: floatDown linear infinite;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+@keyframes floatDown {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-box {
+    background: #3e2723;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 420px;
+    animation: scaleIn 0.6s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popup-box h2 {
+    color: #ffab91;
+    margin-bottom: 15px;
+}
+
+.popup-box button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background: #ff7043;
+    color: #fff;
+    cursor: pointer;
+  }
